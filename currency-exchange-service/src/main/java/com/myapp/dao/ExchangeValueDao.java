@@ -6,7 +6,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name="exchange_value")
@@ -25,12 +24,13 @@ public class ExchangeValueDao {
 		super();
 	}
 
-	public ExchangeValueDao(Long id, String from, String to, BigDecimal conversionMultiple) {
+	public ExchangeValueDao(Long id, String from, String to, BigDecimal conversionMultiple,int port) {
 		super();
 		this.id = id;
 		this.from = from;
 		this.to = to;
 		this.conversionMultiple = conversionMultiple;
+		this.port=port;
 	}
 
 	public Long getId() {

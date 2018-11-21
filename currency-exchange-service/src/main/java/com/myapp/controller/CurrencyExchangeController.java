@@ -16,15 +16,29 @@ public class CurrencyExchangeController {
 
 	@Autowired
 	private Environment environment;
-
+	
 	@Autowired
 	private ExchangeValueRepository exchangeValueRepository;
 
-	@GetMapping("currecny-exchange/from/{from}/to/{to}")
-	public ExchangeValueDao getExchangeValue(@PathVariable String from, @PathVariable String to) {
+	/*
+	 * @GetMapping("currecny-exchange/from/{from}/to/{to}") public ExchangeValueDao
+	 * retriveExchangeValue(@PathVariable String from, @PathVariable String to) {
+	 * ExchangeValueDao exchangeValueDao =
+	 * exchangeValueRepository.findByFromAndTo(from, to);
+	 * exchangeValueDao.setPort(Integer.parseInt(environment.getProperty(
+	 * "local.server.port"))); return exchangeValueDao; }
+	 */
+
+	@GetMapping("currency-exchange/from/{from}/to/{to}")
+	public ExchangeValueDao retriveExchangeValue(@PathVariable String from, @PathVariable String to) {
 		ExchangeValueDao exchangeValueDao = exchangeValueRepository.findByFromAndTo(from, to);
 		exchangeValueDao.setPort(Integer.parseInt(environment.getProperty("local.server.port")));
 		return exchangeValueDao;
+	}
+
+	@GetMapping("/hello")
+	public String getHello() {
+		return "hello";
 	}
 
 }

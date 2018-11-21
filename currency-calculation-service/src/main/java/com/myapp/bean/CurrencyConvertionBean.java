@@ -2,15 +2,17 @@ package com.myapp.bean;
 
 import java.math.BigDecimal;
 
+
+
 public class CurrencyConvertionBean {
 
 	private Long id;
 	private String from;
 	private String to;
 	private BigDecimal conversionMultiple;
-	private BigDecimal quantity;
 	private BigDecimal totalCalculatedAmount;
 	private int port;
+	private BigDecimal quantity;
 
 	public CurrencyConvertionBean() {
 		super();
